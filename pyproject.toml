@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asr-robustness"
+version = "0.1.0"
+description = "ASR robustness evaluation under controlled acoustic noise (Whisper tiny.en on LibriSpeech test-clean)."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=3.0",
+    "numpy>=1.26",
+    "PyYAML>=6.0",
+    "soundfile>=0.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+# TRY004 would turn the ValueError raised for wrongly-typed arguments into TypeError.
+# The documented contract (docstrings, tests, and `except ValueError` handlers in the
+# CLI/data code) is ValueError for every invalid input, so that rule is not applied.
+extend-ignore = ["TRY004"]

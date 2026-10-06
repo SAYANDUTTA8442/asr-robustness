@@ -1,0 +1,7 @@
+seed: 42
+n_utterances: 20
+snr_db: [20, 10, 5]
+model_id: openai/whisper-tiny.en
+dataset_id: openslr/librispeech_asr
+dataset_config: clean
+dataset_split: test
